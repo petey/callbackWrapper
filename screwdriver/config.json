@@ -1,0 +1,34 @@
+{
+    "shared": {
+        "notification_email": "screwdriver-devel@yahoo-inc.com",
+        "build": {
+            "lint": {
+                "threshold": 0
+            },
+            "test": {
+                "task": "npm-test"
+            }
+        },
+        "compilers": {
+            "updateversion": {
+                "compiler": "updateversion"
+            }
+        }
+    },
+    "jobs": {
+        "commit": {
+            "build": {
+                "custom": {
+                    "compile_commands": []
+                }
+            }
+        },
+        "component": {
+            "build": {
+                "custom": {
+                    "compile_commands": ["updateversion"]
+                }
+            }
+        }
+    }
+}

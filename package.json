@@ -1,0 +1,36 @@
+{
+  "name": "callbackWrapper",
+  "version": "0.0.1",
+  "description": "Helper method to wrap callback for logging timing info",
+  "main": "index.js",
+  "scripts": {
+    "test": "ytestrunner -c --istanbul --cov-exclude '**/node_modules/**' --cov-exclude 'tests/**'"
+  },
+  "author": "Pete Peterson <petey@yahoo-inc.com>",
+  "yhint": {
+    "node": true,
+    "json": true
+  },
+  "dependencies": {
+    "timethat": "0.0.2"
+  },
+  "devDependencies": {
+    "yuitest": "0.7.x",
+    "ytestrunner": "0.3.x"
+  },
+  "yahoo": {
+    "bugzilla": {
+      "product": "Screwdriver",
+      "component": "General"
+    },
+    "custodian": {
+      "name": "Pete Peterson",
+      "email": "petey@yahoo-inc.com"
+    },
+    "screwdriver": {}
+  },
+  "repository": {
+    "type": "git",
+    "url": ".."
+  }
+}
