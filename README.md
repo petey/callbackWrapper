@@ -8,7 +8,7 @@ callback-timer
   var myWrappedCallback = wrap({
     tag: 'myModule',
     methodName: 'myAsynchronousCall',
-    max_time_warning: 500
+    maxTimeWarning: 500
   }, myOriginalCallback);
 
   //output timing info to console.warn when myAsynchronousCall takes over 500 ms
