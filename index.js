@@ -34,7 +34,8 @@ function wrapCallback(config, callback) {
         logger = config.logger || console,
         max_time_warning = config.max_time_warning || 0,
         tag = Array.isArray(config.tag) ? config.tag.join(' ') : config.tag,
-        methodName = config.methodName;
+        methodName = config.methodName,
+        useRelativeTime = config.useRelativeTime === undefined ? true : config.useRelativeTime;
 
     return function () {
         var now = new Date(),
@@ -52,7 +53,11 @@ function wrapCallback(config, callback) {
         if (max_time_warning) {
             message.push('longer than ', max_time_warning / 1000, ' seconds - ');
         }
-        message.push(timeThat.calc(start, now));
+        if (useRelativeTime) {
+            message.push(timeThat.calc(start, now));
+        } else {
+            message.push((now.getTime() - start.getTime()) / 1000 + ' seconds');
+        }
 
         if (!max_time_warning || (max_time_warning && isTooSlow)) {
             logger.warn(message.join(''));

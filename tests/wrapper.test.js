@@ -141,5 +141,19 @@ Y.TestRunner.add(new Y.TestCase({
             callback(1, "foo", "hello");
         }, 1);
     },
+    "should accept useRelativeTime": function () {
+        var cb = function (num, str) {
+                A.areEqual(1, num);
+                A.areEqual("foo", str);
+            },
+            callback = wrap({
+                logger: this.getLogger('Call took '),
+                useRelativeTime: false
+            }, cb);
+
+        this.wait(function () {
+            callback(1, "foo");
+        }, 1);
+    }
 
 }));

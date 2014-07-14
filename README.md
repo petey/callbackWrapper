@@ -16,13 +16,15 @@ Parameters:
          * Logging utility with a warn method
          * default: console
       * `max_time_warning`: Number
-      	 * Time in ms to determine if a call is too slow. Will not log if call is faster. Will always log if 0. (default: 0)
-      	 * `tag`: Array | String
+      	* Time in ms to determine if a call is too slow. Will not log if call is faster. Will always log if 0. (default: 0)
+      	* `tag`: Array | String
       	 	* Value to show in [] before log message.
       	 	* default ''
-      	 * `methodName`: String
+      	* `methodName`: String
       	 	* Name of the method to display in the log
       	 	* default: ''
+      * `useRelativeTime`: Boolean
+         * Display the time in (X minutes Y seconds) or (X.YYY) seconds. Default true.
    * `callback`: Function
       * Function to wrap
 
