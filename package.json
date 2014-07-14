@@ -1,5 +1,5 @@
 {
-  "name": "callback-wrapper",
+  "name": "callback-timer",
   "version": "0.0.1",
   "description": "Helper method to wrap callback for logging timing info",
   "main": "index.js",
