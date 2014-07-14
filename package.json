@@ -1,5 +1,5 @@
 {
-  "name": "callbackWrapper",
+  "name": "callback-wrapper",
   "version": "0.0.1",
   "description": "Helper method to wrap callback for logging timing info",
   "main": "index.js",
@@ -26,11 +26,10 @@
     "custodian": {
       "name": "Pete Peterson",
       "email": "petey@yahoo-inc.com"
-    },
-    "screwdriver": {}
+    }
   },
   "repository": {
     "type": "git",
-    "url": ".."
+    "url": "https://github.com/petey/callbackWrapper"
   }
 }
