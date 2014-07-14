@@ -1,8 +1,10 @@
-callbackWrapper
+callback-timer
 ===============
 [ ![Codeship Status for petey/callbackWrapper](https://www.codeship.io/projects/3029df40-eda9-0131-b6e4-1a07b0152fa0/status)](https://www.codeship.io/projects/26718)
 
 ```
+  var wrap = require('callback-timer').wrap;
+
   var myWrappedCallback = wrap({
     tag: 'myModule',
     methodName: 'myAsynchronousCall',
@@ -10,7 +12,8 @@ callbackWrapper
   }, myOriginalCallback);
 
   //output timing info to console.warn when myAsynchronousCall takes over 500 ms
-  myAsynchronousCall(myWrappedCallback);
+  myModule.myAsynchronousCall(myWrappedCallback);
+  //[myModule] Call (myAsynchronousCall) too longer than 0.5 seconds - 0.671 seconds
 ```
 
 
@@ -28,7 +31,7 @@ Parameters:
       * `logger`: Object
          * Logging utility with a warn method
          * default: console
-      * `max_time_warning`: Number
+      * `maxTimeWarning`: Number
       	* Time in ms to determine if a call is too slow. Will not log if call is faster. Will always log if 0.
       	* default: 0
       * `tag`: Array | String

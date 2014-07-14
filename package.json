@@ -1,12 +1,13 @@
 {
   "name": "callback-timer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Helper method to wrap callback for logging timing info",
   "main": "index.js",
   "scripts": {
     "test": "ytestrunner -c --istanbul --cov-exclude '**/node_modules/**' --cov-exclude 'tests/**'"
   },
   "author": "Pete Peterson <petey@yahoo-inc.com>",
+  "license": "MIT",
   "yhint": {
     "node": true,
     "json": true
