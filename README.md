@@ -1,5 +1,6 @@
 callbackWrapper
 ===============
+[ ![Codeship Status for petey/callbackWrapper](https://www.codeship.io/projects/3029df40-eda9-0131-b6e4-1a07b0152fa0/status)](https://www.codeship.io/projects/26718)
 
 `wrap ( config, callback )`: Function
 
