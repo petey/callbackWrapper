@@ -88,14 +88,14 @@ Y.TestRunner.add(new Y.TestCase({
             callback(1, "foo", "hello");
         }, 1);
     },
-    "should accept a max_time_warning for determining call length": function () {
+    "should accept a maxTimeWarning for determining call length": function () {
         var cb = function (num, str, str2) {
                 A.areEqual(1, num);
                 A.areEqual("foo", str);
                 A.areEqual("hello", str2);
             },
             callback = wrap({
-                max_time_warning: 20,
+                maxTimeWarning: 20,
                 tag: 'foo',
                 logger: this.getLogger('[foo] Call took longer than 0.02 seconds - ')
             }, cb);
@@ -120,7 +120,7 @@ Y.TestRunner.add(new Y.TestCase({
             callback(1, "foo", "hello");
         }, 1);
     },
-    "should not warn if max_time_warning and call was fast": function () {
+    "should not warn if maxTimeWarning and call was fast": function () {
         var cb = function (num, str, str2) {
                 A.areEqual(1, num);
                 A.areEqual("foo", str);
@@ -128,7 +128,7 @@ Y.TestRunner.add(new Y.TestCase({
             },
             callback = wrap({
                 methodName: 'banana',
-                max_time_warning: 20,
+                maxTimeWarning: 20,
                 tag: 'foo',
                 logger: {
                     warn: function () {
