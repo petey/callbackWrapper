@@ -2,6 +2,18 @@ callbackWrapper
 ===============
 [ ![Codeship Status for petey/callbackWrapper](https://www.codeship.io/projects/3029df40-eda9-0131-b6e4-1a07b0152fa0/status)](https://www.codeship.io/projects/26718)
 
+```
+  var myWrappedCallback = wrap({
+    tag: 'myModule',
+    methodName: 'myAsynchronousCall',
+    max_time_warning: 500
+  }, myOriginalCallback);
+
+  //output timing info to console.warn when myAsynchronousCall takes over 500 ms
+  myAsynchronousCall(myWrappedCallback);
+```
+
+
 `wrap ( config, callback )`: Function
 
 Wrap a callback function to add timing and logging asyncronous calls
@@ -17,15 +29,17 @@ Parameters:
          * Logging utility with a warn method
          * default: console
       * `max_time_warning`: Number
-      	* Time in ms to determine if a call is too slow. Will not log if call is faster. Will always log if 0. (default: 0)
-      	* `tag`: Array | String
-      	 	* Value to show in [] before log message.
-      	 	* default ''
-      	* `methodName`: String
-      	 	* Name of the method to display in the log
-      	 	* default: ''
+      	* Time in ms to determine if a call is too slow. Will not log if call is faster. Will always log if 0.
+      	* default: 0
+      * `tag`: Array | String
+      	* Value to show in [] before log message.
+      	* default ''
+      * `methodName`: String
+      	* Name of the method to display in the log
+      	* default: ''
       * `useRelativeTime`: Boolean
-         * Display the time in (X minutes Y seconds) or (X.YYY) seconds. Default true.
+         * Display the time in (X minutes Y seconds) or (X.YYY) seconds. 
+         * Default: true
    * `callback`: Function
       * Function to wrap
 
