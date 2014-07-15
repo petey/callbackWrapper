@@ -13,7 +13,7 @@ callback-timer
 
   //output timing info to console.warn when myAsynchronousCall takes over 500 ms
   myModule.myAsynchronousCall(myWrappedCallback);
-  //[myModule] Call (myAsynchronousCall) too longer than 0.5 seconds - 0.671 seconds
+  //[myModule] Call (myAsynchronousCall) took longer than 0.5 seconds - 0.671 seconds
 ```
 
 

@@ -1,6 +1,6 @@
 {
   "name": "callback-timer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Helper method to wrap callback for logging timing info",
   "main": "index.js",
   "scripts": {
