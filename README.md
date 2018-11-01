@@ -1,6 +1,5 @@
 callback-timer
 ===============
-[ ![Codeship Status for petey/callbackWrapper](https://www.codeship.io/projects/3029df40-eda9-0131-b6e4-1a07b0152fa0/status)](https://www.codeship.io/projects/26718)
 
 ```
   var wrap = require('callback-timer').wrap;
@@ -41,7 +40,7 @@ Parameters:
       	* Name of the method to display in the log
       	* default: ''
       * `useRelativeTime`: Boolean
-         * Display the time in (X minutes Y seconds) or (X.YYY) seconds. 
+         * Display the time in (X minutes Y seconds) or (X.YYY) seconds.
          * Default: true
    * `callback`: Function
       * Function to wrap
