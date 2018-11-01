@@ -1,33 +1,21 @@
 {
   "name": "callback-timer",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Helper method to wrap callback for logging timing info",
   "main": "index.js",
   "scripts": {
-    "test": "ytestrunner -c --istanbul --cov-exclude '**/node_modules/**' --cov-exclude 'tests/**'"
+    "test": "jenkins-mocha tests/*"
   },
   "author": "Pete Peterson <petey@yahoo-inc.com>",
   "license": "MIT",
-  "yhint": {
-    "node": true,
-    "json": true
-  },
   "dependencies": {
-    "timethat": "0.0.2"
+    "timethat": "0.0.3"
   },
   "devDependencies": {
-    "yuitest": "0.7.x",
-    "ytestrunner": "0.3.x"
-  },
-  "yahoo": {
-    "bugzilla": {
-      "product": "Screwdriver",
-      "component": "General"
-    },
-    "custodian": {
-      "name": "Pete Peterson",
-      "email": "petey@yahoo-inc.com"
-    }
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "jenkins-mocha": "^6.0.0"
   },
   "repository": {
     "type": "git",
