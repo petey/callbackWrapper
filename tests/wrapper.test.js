@@ -4,14 +4,14 @@
 const { assert } = require('chai');
 const { wrap } = require('../index');
 
-const assertableCallback = done => (num, str, str2) => {
+const assertableCallback = (done) => (num, str, str2) => {
   assert.equal(1, num);
   assert.equal('foo', str);
   assert.equal('hello', str2);
   done();
 };
 
-const getLogger = message => ({
+const getLogger = (message) => ({
   warn: (str) => {
     assert.isTrue(str.indexOf(message) === 0, `Log message did not match. Expected "${str}" to match "${message}"`);
   },
