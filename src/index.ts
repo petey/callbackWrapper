@@ -1,5 +1,20 @@
 /* eslint-disable max-len */
-const timeThat = require('timethat');
+import timeThat from 'timethat';
+
+interface logger {
+  warn: (...args: any) => void;
+}
+
+interface wrapCallbackConfig {
+  context?: unknown;
+  logger?: logger;
+  maxTimeWarning?: number;
+  useRelativeTime?: boolean;
+  tag?: string[] | string;
+  methodName?: string;
+}
+
+type callbackFn = (...args: any) => any;
 
 /**
  * @module wrapCallback
@@ -20,14 +35,14 @@ const timeThat = require('timethat');
  * @param {Function}  callback        Function to wrap
  * @returns {Function}   Wrapped Callback
  */
-const wrapCallback = (config, callback) => {
-  let cb = callback;
-  let conf = config;
+const wrapCallback = (
+  config: wrapCallbackConfig | callbackFn,
+  callback?: callbackFn | undefined
+) => {
+  let cb: callbackFn =
+    typeof callback === 'function' ? callback : (config as callbackFn);
+  let conf: wrapCallbackConfig = typeof config !== 'function' ? config : {};
 
-  if (!cb) {
-    cb = conf;
-    conf = {};
-  }
   if (!cb || typeof cb !== 'function') {
     throw new Error('Callback not defined');
   }
@@ -40,27 +55,33 @@ const wrapCallback = (config, callback) => {
     methodName,
   } = conf;
   const tag = Array.isArray(conf.tag) ? conf.tag.join(' ') : conf.tag;
-  const useRelativeTime = conf.useRelativeTime === undefined ? true : conf.useRelativeTime;
+  const useRelativeTime =
+    conf.useRelativeTime === undefined ? true : !!conf.useRelativeTime;
 
-  return (...args) => {
+  return async (...args: any) => {
+    const result = cb.apply(context, args);
+    if (result instanceof Promise) {
+      await result;
+    }
+
     const now = new Date();
-    const isTooSlow = (now.getTime() - start.getTime() > maxTimeWarning);
-    const message = [];
+    const isTooSlow = now.getTime() - start.getTime() > maxTimeWarning;
+    const message: string[] = [];
 
     if (tag) {
-      message.push('[', tag, '] ');
+      message.push(`[${tag}] `);
     }
 
     message.push('Call ');
 
     if (methodName) {
-      message.push('(', methodName, ') ');
+      message.push(`(${methodName}) `);
     }
 
     message.push('took ');
 
     if (maxTimeWarning) {
-      message.push('longer than ', maxTimeWarning / 1000, ' seconds - ');
+      message.push(`longer than ${maxTimeWarning / 1000} seconds - `);
     }
 
     if (useRelativeTime) {
@@ -72,11 +93,7 @@ const wrapCallback = (config, callback) => {
     if (!maxTimeWarning || (maxTimeWarning && isTooSlow)) {
       logger.warn(message.join(''));
     }
-
-    cb.apply(context, args);
   };
 };
 
-module.exports = {
-  wrap: wrapCallback,
-};
+export const wrap = wrapCallback;

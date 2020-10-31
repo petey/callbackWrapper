@@ -48,3 +48,5 @@ Parameters:
 Returns: Function
 
 * Wrapped Callback
+
+Note, this will not properly time functions that return a Promise, or have other async behavior. :(
