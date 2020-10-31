@@ -4,7 +4,7 @@
   "description": "Helper method to wrap callback for logging timing info",
   "main": "index.js",
   "scripts": {
-    "test": "jenkins-mocha tests/*",
+    "test": "nyc --reporter=lcov --reporter=text-summary mocha tests/*",
     "lint": "eslint ."
   },
   "author": "Pete Peterson <petey@yahoo-inc.com>",
@@ -14,10 +14,11 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "eslint": "^6.7.2",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "jenkins-mocha": "^8.0.0"
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "mocha": "^8.2.0",
+    "nyc": "^15.1.0"
   },
   "repository": {
     "type": "git",
