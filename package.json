@@ -1,27 +1,58 @@
 {
-  "name": "callback-timer",
-  "version": "0.0.5",
-  "description": "Helper method to wrap callback for logging timing info",
-  "main": "index.js",
-  "scripts": {
-    "test": "nyc --reporter=lcov --reporter=text-summary mocha tests/*",
-    "lint": "eslint ."
-  },
-  "author": "Pete Peterson <petey@yahoo-inc.com>",
+  "version": "0.1.0",
   "license": "MIT",
-  "dependencies": {
-    "timethat": "0.0.3"
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
   },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "callback-timer-ts",
+  "author": "Peter Peterson",
+  "module": "dist/callback-timer-ts.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/callback-timer-ts.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/callback-timer-ts.esm.js",
+      "limit": "10 KB"
+    }
+  ],
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.12.1",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "mocha": "^8.2.0",
-    "nyc": "^15.1.0"
+    "@size-limit/preset-small-lib": "^4.7.0",
+    "husky": "^4.3.0",
+    "size-limit": "^4.7.0",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.5"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/petey/callback-timer"
+  "dependencies": {
+    "timethat": "^0.0.3"
   }
 }
